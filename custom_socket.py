@@ -5,20 +5,14 @@ from PyQt5.QtCore import QThread
 from PyQt5.QtWidgets import QMessageBox
 
 import time
-import value
 
-class Socket(QThread):
+class Socket():
     def __init__(self, main, img_list):
         QThread.__init__(self)
         self.__HOST = ''
         self.__PORT1 = 5556
-        self.__PORT2 = 5557
-        self.__PORT3 = 5558
-        self.__BUFSIZE = 1024
 
         self.__ADDR1 = (self.__HOST, self.__PORT1)
-        self.__ADDR2 = (self.__HOST, self.__PORT2)
-        self.__ADDR3 = (self.__HOST, self.__PORT3)
 
         self.addr = [self.__ADDR1, self.__ADDR2, self.__ADDR3]
 
@@ -26,14 +20,6 @@ class Socket(QThread):
         self.img_list = img_list
 
         self.dialog = None
-        self.data = [None, None, None]
-
-    def __del__(self):
-        self.wait()
-
-    def run(self):
-        while True:
-            pass
 
     def connect(self, dialog):
         self.dialog = dialog
@@ -92,7 +78,6 @@ class Socket(QThread):
                 return False
 
         return True
-
 
     def message(self, send_message):
         rtnv = []
