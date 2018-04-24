@@ -131,9 +131,9 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>190</y>
+      <y>180</y>
       <width>521</width>
-      <height>431</height>
+      <height>451</height>
      </rect>
     </property>
     <property name="widgetResizable">
@@ -145,17 +145,30 @@
        <x>0</x>
        <y>0</y>
        <width>519</width>
-       <height>429</height>
+       <height>449</height>
       </rect>
      </property>
+     <widget class="QListWidget" name="qt_listWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>521</width>
+        <height>451</height>
+       </rect>
+      </property>
+     </widget>
+     <zorder>verticalLayoutWidget</zorder>
+     <zorder>qt_listWidget</zorder>
     </widget>
    </widget>
    <zorder>splitter_2</zorder>
-   <zorder>qt_scrollArea</zorder>
    <zorder>label</zorder>
    <zorder>qt_radio_onetime</zorder>
    <zorder>qt_radio_roof</zorder>
    <zorder>label</zorder>
+   <zorder>qt_scrollArea</zorder>
+   <zorder>qt_scrollArea</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -187,21 +200,37 @@
    <sender>qt_measurement_btn</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>slot_ok()</slot>
+   <slot>slot_measurement()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1687</x>
-     <y>79</y>
+     <x>560</x>
+     <y>124</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1818</x>
+     <x>602</x>
      <y>111</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>qt_listWidget</sender>
+   <signal>itemSelectionChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_item_checked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>422</x>
+     <y>244</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>582</x>
+     <y>360</y>
     </hint>
    </hints>
   </connection>
  </connections>
  <slots>
-  <slot>slot_ok()</slot>
-  <slot>slot_past()</slot>
+  <slot>slot_measurement()</slot>
+  <slot>slot_item_checked()</slot>
  </slots>
 </ui>
